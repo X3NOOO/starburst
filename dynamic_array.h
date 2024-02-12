@@ -34,7 +34,6 @@ Args:
 #define sb_da_insert(da, value, index)                                                                                           \
     do                                                                                                                           \
     {                                                                                                                            \
-        static_assert(SB_M_ARE_SAME_TYPE(value, *((da)->items)), "Tried to add a value of a different type to a dynamic array"); \
         assert((da)->count >= (index));                                                                                          \
         if ((da)->capacity <= (da)->count)                                                                                       \
         {                                                                                                                        \
