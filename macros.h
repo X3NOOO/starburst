@@ -7,7 +7,7 @@ Returns how many elements can the array fit.
 Args:
     arr: array to check
 */
-#define SIZEOF(arr) sizeof(arr) / sizeof(*arr)
+#define LENGTH(arr) sizeof(arr) / sizeof(*arr)
 
 /*
 Checks if a value is of a certain type.
