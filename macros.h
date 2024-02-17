@@ -2,6 +2,15 @@
 #define STARBURST_MACROS_H
 
 /*
+Platform dependent path separator
+*/
+#if defined(_WIN32) || defined(_WIN64)
+#define SB_M_PATH_SEPARATOR '\\'
+#else
+#define SB_M_PATH_SEPARATOR '/'
+#endif // defined(_WIN32) || defined(_WIN64)
+
+/*
 Returns how many elements can the array fit.
 
 Args:
