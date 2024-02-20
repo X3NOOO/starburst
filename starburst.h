@@ -5,5 +5,6 @@
 #include "string.h"
 #include "filesystem.h"
 #include "log.h"
+#include "regex.h"
 
 #endif // STARBURST_H
