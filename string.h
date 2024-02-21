@@ -5,6 +5,8 @@
 #include "dynamic_array.h"
 
 sb_da_construct_type(sb_string_t, char);
+sb_da_construct_type(sb_cstr_arr_t, char*);
+sb_da_construct_type(sb_str_arr_t, sb_string_t);
 
 /*
 Append a null character to the end of the string.

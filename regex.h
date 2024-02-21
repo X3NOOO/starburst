@@ -6,8 +6,6 @@
 #include "./dynamic_array.h"
 #include "./string.h"
 
-sb_da_construct_type(sb_str_arr_t, sb_string_t);
-
 /*
 Match regex pattern to text.
 

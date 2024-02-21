@@ -14,7 +14,7 @@ bool sb_re_match(const char *pattern, const char *text, sb_str_arr_t *matches)
 
     re = pcre2_compile((PCRE2_SPTR)pattern, PCRE2_ZERO_TERMINATED, 0, &errorcode, &erroffset, NULL);
     if (re == NULL)
-        return 1;
+        return false;
 
     match_data = pcre2_match_data_create_from_pattern(re, NULL);
 
@@ -24,9 +24,8 @@ bool sb_re_match(const char *pattern, const char *text, sb_str_arr_t *matches)
     while ((rc = pcre2_match(re, (PCRE2_SPTR)text, PCRE2_ZERO_TERMINATED, offset, 0, match_data, NULL)) >= 0)
     {
         if (rc == 0)
-        {
             rc = 1;
-        }
+
         PCRE2_SIZE *ovector = pcre2_get_ovector_pointer(match_data);
         for (int i = 0; i < rc; i++)
         {
@@ -46,10 +45,10 @@ bool sb_re_match(const char *pattern, const char *text, sb_str_arr_t *matches)
     }
 
     if (rc < 0 && rc != PCRE2_ERROR_NOMATCH)
-        return 1;
+        return false;
 
     pcre2_match_data_free(match_data);
     pcre2_code_free(re);
 
-    return 0;
+    return true;
 }

@@ -24,7 +24,7 @@ bool sb_fs_read_file_str(const char *path, sb_string_t *out)
 
     free(tmp_buf);
 
-    return !(fclose(fp));
+    return fclose(fp);
 }
 
 bool sb_fs_ls(const char *path, sb_fs_entries_t *out)
